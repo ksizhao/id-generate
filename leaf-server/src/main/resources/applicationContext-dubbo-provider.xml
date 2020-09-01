@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- Provider Config -->
+    <dubbo:application name="${dubbo.application.name}" logger="slf4j"/>
+    <dubbo:protocol id="dubbo" name="dubbo" host="${dubbo.protocol.host}" port="${dubbo.application.port}" threadpool="cached"/>
+    <dubbo:registry protocol="zookeeper" address="${dubbo.application.address}" timeout="300000" register="true" client="curator"/>
+    <dubbo:provider version="${dubbo.provider.version}" timeout="300000" retries="3" />
+
+
+    <!-- 广播的接收者，用于接收最新的数据库配置信息 -->
+    <dubbo:service  version="${dubbo.provider.version}" interface="fingard.api.IdGenerateApi" ref="leafProvider" cluster="broadcast"/>
+
+</beans>
