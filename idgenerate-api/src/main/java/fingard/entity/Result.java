@@ -6,6 +6,8 @@ public class Result implements Serializable {
     private long id;
     private Status status;
 
+
+
     public Result() {
 
     }
