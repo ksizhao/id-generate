@@ -13,6 +13,6 @@
 
 
     <!-- 广播的接收者，用于接收最新的数据库配置信息 -->
-    <dubbo:service  version="${dubbo.provider.version}" interface="fingard.api.IdGenerateApi" ref="leafProvider" cluster="broadcast"/>
+    <dubbo:service  version="${dubbo.provider.version}" interface="fingard.api.IdGenerateApi" ref="leafProvider"/>
 
 </beans>
