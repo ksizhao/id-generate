@@ -3,12 +3,9 @@ package com.sankuai.inf.leaf.server.api.impl;
 import com.sankuai.inf.leaf.server.service.SnowflakeService;
 import fingard.api.IdGenerateApi;
 import fingard.entity.Result;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-
 
 /**
  * @author zhaolc
@@ -16,7 +13,7 @@ import javax.annotation.PostConstruct;
  * @description TODO
  * @createTime 2020年08月31日 16:01:00
  */
-@Service("leafProvider")
+@Service
 @Component
 public class LeafProvider implements IdGenerateApi {
 
