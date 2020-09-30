@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
  * @createTime 2020年08月31日 16:01:00
  */
 @Service
-@Component
 public class LeafProvider implements IdGenerateApi {
 
 
