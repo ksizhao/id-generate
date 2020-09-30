@@ -1,10 +1,12 @@
 package com.sankuai.inf.leaf.server.controller;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.sankuai.inf.leaf.segment.SegmentIDGenImpl;
 import com.sankuai.inf.leaf.server.model.SegmentBufferView;
 import com.sankuai.inf.leaf.segment.model.LeafAlloc;
 import com.sankuai.inf.leaf.segment.model.SegmentBuffer;
 import com.sankuai.inf.leaf.server.service.SegmentService;
+import org.apache.ibatis.annotations.Results;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class LeafMonitorController {
 
     @Autowired
     private SegmentService segmentService;
+
+    @NacosValue(value = "${nacos.test:123}", autoRefreshed = true)
+    String properties;
 
     @RequestMapping(value = "cache")
     public String getCache(Model model) {
@@ -101,4 +106,13 @@ public class LeafMonitorController {
         }
         return map;
     }
+
+
+    @RequestMapping("/getProperties")
+    public String getProperties() {
+        return properties;
+    }
+
+
+
 }

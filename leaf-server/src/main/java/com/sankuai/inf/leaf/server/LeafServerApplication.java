@@ -1,10 +1,11 @@
 package com.sankuai.inf.leaf.server;
 
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@EnableDiscoveryClient
+@NacosPropertySource(dataId = "boot-order-service", autoRefreshed = true)
 public class LeafServerApplication {
 
 	public static void main(String[] args) {
